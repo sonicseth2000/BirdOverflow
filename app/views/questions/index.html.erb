@@ -1,4 +1,65 @@
-<h1>Listing questions</h1>
+<html>
+
+<head>
+
+</head>
+
+<body>
+<%= text_field_tag(:title, "Hi, nice site") %>	
+<%= text_field_tag(:category, "Hi, nice site") %>
+<%= text_area_tag(:question, "Hi, nice site", size: "24x6") %>
+
+<%= form_for :question do |f| %>
+  First name: <%= f.text_field :title %><br />
+  Last name : <%= f.text_field :question_id %><br />
+  Biography : <%= f.text_area :content %><br />
+  <%= f.submit %>
+<% end %>
+
+question = Question.find_by_title("test2")
+
+<!--<p>Ask a Question</p>
+
+<form action="">
+<fieldset>
+<label for="title"><b>Subject:&nbsp;</b></label>
+<input type="text" name="title" id="title" size=50>
+<label for="category"><b>&nbsp;&nbsp;&nbsp;Select a Category:</b></label>
+<select name="category" id="category">
+<option selected="selected">Category 1</option>
+<option>Category 2</option>
+<option>Category 3</option>
+<option>Category 4</option>
+<option>Category 5</option>
+</select>
+</fieldset>
+
+<fieldset>
+<label for="Question"><b><p class="top">Question:</p></b></label>
+<textarea name="question" id="question" rows="20" cols="100">
+</textarea>
+</fieldset>
+
+<button>Submit Question</button>
+</form>
+-->
+
+
+
+	<!--
+	<form name="AskQuestion">
+	Which Category?<select name="category" size=1>
+		<option selected>---
+		<option selected>Cat1
+		<option selected>Cat2
+		<option selected>Cat3
+		<option selected>Cat4
+		<option selected>Cat5
+	</select><BR>
+	Subject:<input type="text" name="subject">
+	Question:<input type="text-->
+	
+	<h1>Listing questions</h1>
 
 <table>
   <thead>
@@ -37,3 +98,7 @@
 <br>
 
 <%= link_to 'New Question', new_question_path %>
+	
+</body>
+
+</html>
