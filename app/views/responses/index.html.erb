@@ -1,0 +1,37 @@
+<h1>Listing responses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response</th>
+      <th>Q response</th>
+      <th>R response</th>
+      <th>Creator</th>
+      <th>Response score</th>
+      <th>Content</th>
+      <th>Timestamp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @responses.each do |response| %>
+      <tr>
+        <td><%= response.response_id %></td>
+        <td><%= response.q_response_id %></td>
+        <td><%= response.r_response_id %></td>
+        <td><%= response.creator_id %></td>
+        <td><%= response.response_score %></td>
+        <td><%= response.content %></td>
+        <td><%= response.timestamp %></td>
+        <td><%= link_to 'Show', response %></td>
+        <td><%= link_to 'Edit', edit_response_path(response) %></td>
+        <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Response', new_response_path %>

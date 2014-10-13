@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  response_id: 1
+  q_response_id: 1
+  r_response_id: 1
+  creator_id: 1
+  response_score: 1
+  content: MyText
+  timestamp: 2014-10-13 14:00:12
+
+two:
+  response_id: 1
+  q_response_id: 1
+  r_response_id: 1
+  creator_id: 1
+  response_score: 1
+  content: MyText
+  timestamp: 2014-10-13 14:00:12
