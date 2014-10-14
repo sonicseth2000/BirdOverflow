@@ -39,6 +39,7 @@ class ResponsesController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /responses/1
   # PATCH/PUT /responses/1.json

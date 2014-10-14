@@ -79,7 +79,7 @@
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Respond', new_response_path(:question_id = question.question_id) %></td>
+        <td><%= link_to 'Respond', new_response_path(:question_id => question.question_id) %></td>
       </tr>
     <% end %>
   </tbody>
