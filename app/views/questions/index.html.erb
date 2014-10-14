@@ -5,18 +5,21 @@
 </head>
 
 <body>
-<%= text_field_tag(:title, "Hi, nice site") %>	
-<%= text_field_tag(:category, "Hi, nice site") %>
-<%= text_area_tag(:question, "Hi, nice site", size: "24x6") %>
 
-<%= form_for :question do |f| %>
-  First name: <%= f.text_field :title %><br />
-  Last name : <%= f.text_field :question_id %><br />
-  Biography : <%= f.text_area :content %><br />
+<%= form_for Question.new do |f| %>
+  title: <%= f.text_field :title %>
+  category: <%= f.select :category, options_for_select(%w[1 2 3 4 5]) %><br />
+  content : <%= f.text_area :content %><br />
+ 
+<%=f.hidden_field :content, :value => "" %>  
+<%=f.hidden_field :question_id, :value => 123 %>
+<%=f.hidden_field :creator_id, :value => 100 %>
+<%=f.hidden_field :answered, :value => false %>
+<%=f.hidden_field :timestamp, :value => DateTime.now %>
+
   <%= f.submit %>
 <% end %>
 
-question = Question.find_by_title("test2")
 
 <!--<p>Ask a Question</p>
 

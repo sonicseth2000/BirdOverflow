@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013190012) do
+ActiveRecord::Schema.define(version: 20141013235253) do
 
   create_table "messages", force: true do |t|
     t.integer  "message_id"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20141013190012) do
     t.string   "title"
     t.text     "content"
     t.datetime "timestamp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "question2s", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "creator_id"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "category"
+    t.boolean  "answer"
+    t.datetime "timestamp"
+    t.string   "closingcommnet"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
