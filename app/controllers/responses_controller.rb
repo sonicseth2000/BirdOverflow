@@ -15,6 +15,9 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   def new
     @response = Response.new
+    if params[:question_id]
+      @response.q_response_id = params[:question_id]
+  end
   end
 
   # GET /responses/1/edit

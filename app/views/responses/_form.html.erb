@@ -15,10 +15,7 @@
     <%= f.label :response_id %><br>
     <%= f.number_field :response_id %>
   </div>
-  <div class="field">
-    <%= f.label :q_response_id %><br>
-    <%= f.number_field :q_response_id %>
-  </div>
+
   <div class="field">
     <%= f.label :r_response_id %><br>
     <%= f.number_field :r_response_id %>
@@ -42,4 +39,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+  <p><%= question_id %></p>
 <% end %>
