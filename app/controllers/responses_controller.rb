@@ -15,9 +15,6 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   def new
     @response = Response.new
-    if params[:question_id]
-      @response.q_response_id = params[:question_id]
-  end
   end
 
   # GET /responses/1/edit
@@ -74,4 +71,5 @@ class ResponsesController < ApplicationController
     def response_params
       params.require(:response).permit(:response_id, :q_response_id, :r_response_id, :creator_id, :response_score, :content, :timestamp)
     end
+    
 end
