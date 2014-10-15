@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @responses.each do |response| %>
+    <% @responses.order('timestamp').reverse_order().take(3).each do |response| %>
       <tr>
         <td><%= response.response_id %></td>
         <td><%= response.q_response_id %></td>
