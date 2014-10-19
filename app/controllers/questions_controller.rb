@@ -6,7 +6,22 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
   end
-
+  @@question_id = 0;
+  def self.question_id
+    @@question_id
+  end
+     @@reset = true;
+  def self.reset
+    @@reset
+  end
+  
+   def set_id
+   temp =  Question.last(1);
+   @@question_id = temp[0].question_id
+   @@reset = false
+     
+   end
+ 
   # GET /questions/1
   # GET /questions/1.json
   def show
@@ -24,9 +39,19 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-
+    if @@reset
+    set_id
+    end
+    #ENV["question_id"] = ENV["question_id"] + 1
+   # Qu
+  # question_params[:question_id] = @@question_id+1
+   # @@question_id = @@question_id + 1
+    question_params[:question_id] = 5
+    @@question_id = @@question_id + 1
+ @question = Question.new(question_params)
+    @question.question_id =  @@question_id
     respond_to do |format|
+     
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
@@ -69,6 +94,7 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
+      
       params.require(:question).permit(:question_id, :creator_id, :title, :content, :category, :answered, :closing_comment, :timestamp)
     end
 end
