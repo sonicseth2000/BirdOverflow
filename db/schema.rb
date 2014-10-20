@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013235253) do
+ActiveRecord::Schema.define(version: 20141020233116) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "answer_id"
+    t.integer  "q_response_id"
+    t.integer  "creator_id"
+    t.integer  "response_score"
+    t.text     "content"
+    t.datetime "timestamp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hackers", force: true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "score"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", force: true do |t|
     t.integer  "message_id"

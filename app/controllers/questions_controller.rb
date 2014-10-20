@@ -71,4 +71,5 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:question_id, :creator_id, :title, :content, :category, :answered, :closing_comment, :timestamp)
     end
+    
 end

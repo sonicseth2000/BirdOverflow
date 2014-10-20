@@ -17,7 +17,7 @@
   <tbody>
     <% @responses.order('timestamp').reverse_order().take(3).each do |response| %>
       <tr>
-        <td><%= response.response_id %></td>
+        <td><%= response.id %></td>
         <td><%= response.q_response_id %></td>
         <td><%= response.r_response_id %></td>
         <td><%= response.creator_id %></td>
@@ -27,7 +27,6 @@
         <td><%= link_to 'Show', response %></td>
         <td><%= link_to 'Edit', edit_response_path(response) %></td>
         <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Respond', new_response_path(:question_id => response.q_response_id, :response_id => response.response_id) %></td>
       </tr>
     <% end %>
   </tbody>

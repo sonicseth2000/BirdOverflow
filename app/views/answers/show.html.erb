@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer.answer_id %>
+</p>
+
+<p>
+  <strong>Q response:</strong>
+  <%= @answer.q_response_id %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @answer.creator_id %>
+</p>
+
+<p>
+  <strong>Response score:</strong>
+  <%= @answer.response_score %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @answer.content %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @answer.timestamp %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
