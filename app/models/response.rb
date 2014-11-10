@@ -5,5 +5,7 @@ class Response < ActiveRecord::Base
 	validates :Creator_ID, presence: true, numericality: true
 	validates :Response_Score, presence: true, length: {minimum: 0000}
 	validates :Timestamp, presence: true
+	self.primary_key = :Response_ID
+	
 	
 end
