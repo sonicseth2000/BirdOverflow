@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Response:</strong>
+  <%= @response.response_id %>
+</p>
+
+<p>
+  <strong>Q response:</strong>
+  <%= @response.q_response_id %>
+</p>
+
+<p>
+  <strong>R response:</strong>
+  <%= @response.r_response_id %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @response.creator_id %>
+</p>
+
+<p>
+  <strong>Response score:</strong>
+  <%= @response.response_score %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @response.content %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @response.timestamp %>
+</p>
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>

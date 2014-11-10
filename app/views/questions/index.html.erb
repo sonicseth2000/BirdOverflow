@@ -1,0 +1,98 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+
+<!--<p>Ask a Question</p>
+
+<form action="">
+<fieldset>
+<label for="title"><b>Subject:&nbsp;</b></label>
+<input type="text" name="title" id="title" size=50>
+<label for="category"><b>&nbsp;&nbsp;&nbsp;Select a Category:</b></label>
+<select name="category" id="category">
+<option selected="selected">Category 1</option>
+<option>Category 2</option>
+<option>Category 3</option>
+<option>Category 4</option>
+<option>Category 5</option>
+</select>
+</fieldset>
+
+<fieldset>
+<label for="Question"><b><p class="top">Question:</p></b></label>
+<textarea name="question" id="question" rows="20" cols="100">
+</textarea>
+</fieldset>
+
+<button>Submit Question</button>
+</form>
+-->
+
+
+
+	<!--
+	<form name="AskQuestion">
+	Which Category?<select name="category" size=1>
+		<option selected>---
+		<option selected>Cat1
+		<option selected>Cat2
+		<option selected>Cat3
+		<option selected>Cat4
+		<option selected>Cat5
+	</select><BR>
+	Subject:<input type="text" name="subject">
+	Question:<input type="text-->
+	
+	<h1>Listing questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Creator</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Category</th>
+      <th>Answered</th>
+      <th>Closing comment</th>
+      <th>Timestamp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.id %></td>
+        <td><%= question.creator_id %></td>
+        <td><%= question.title %></td>
+        <td><%= question.content %></td>
+        <td><%= question.category %></td>
+        <td><%= question.answered %></td>
+        <td><%= question.closing_comment %></td>
+        <td><%= question.timestamp %></td>
+        <td><%= link_to 'Show', question %></td>
+        <td><%= link_to 'Edit', edit_question_path(question) %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Respond', new_answer_path(:question_id => question.id) %></td>
+        <td><%= link_to 'Answer', answer_question(question) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<button class="btn btn-primary">answered</button>
+
+
+
+<%= link_to 'New Question', new_question_path %>
+	
+</body>
+
+</html>

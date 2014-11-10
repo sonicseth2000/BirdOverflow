@@ -1,0 +1,26 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  title: <%= f.text_field :title %>
+  category: <%= f.select :category, options_for_select(%w[1 2 3 4 5]) %><br />
+  content : <%= f.text_area(:content, size: '50x10') %><br />
+
+<%=f.hidden_field :question_id, :value => 123 %>
+<%=f.hidden_field :creator_id, :value => 100 %>
+<%=f.hidden_field :answered, :value => false %>
+<%=f.hidden_field :timestamp, :value => DateTime.now %>
+
+  <%= f.submit %>
+
+<% end %>
