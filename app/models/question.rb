@@ -1,11 +1,6 @@
 class Question < ActiveRecord::Base
-	
-	validates :Question_ID, presence: true, numericality: true
-	validates :Creator_ID, presence: true, numericality: true
-	validates :Timestamp, presence: true
-	
-	belongs_to :user
-	
-	self.primary_key = :Question_ID
-
+  self.primary_key = 'question_id'
+  validates_uniqueness_of :content 
+  belongs_to :user
+  has_many :answers
 end
