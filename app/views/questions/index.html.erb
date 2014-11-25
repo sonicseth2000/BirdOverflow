@@ -38,7 +38,7 @@
 	<!--
 	<form name="AskQuestion">
 	Which Category?<select name="category" size=1>
-		<option selected>---
+		<option selected>
 		<option selected>Cat1
 		<option selected>Cat2
 		<option selected>Cat3
@@ -81,7 +81,7 @@
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Respond', new_answer_path(:question_id => question.id) %></td>
-        <td><%= link_to 'Answer', answer_question(question) %></td>
+        <td><%= link_to 'Answer',  answer_question_path(question)  %></td>
       </tr>
     <% end %>
     

@@ -21,9 +21,14 @@ class QuestionsController < ApplicationController
   def edit
   end
   
+  # POST /questions
+  # POST /questions.json
   def answer
-    @question.answered="true"
-  end
+    @question = Question.find(params[:id])
+	  @question.toggle!(:answered) 
+	  @question.save()
+  redirect_to(:back)
+	  end
 
   # POST /questions
   # POST /questions.json
@@ -65,7 +70,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
       @question = Question.find(params[:id])

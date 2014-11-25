@@ -26,7 +26,7 @@
         <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
         <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %></td>
-        <td><%= link_to 'Answer', answer_question(answer) %></td>
+      
       </tr>
     <% end %>
   </tbody>
