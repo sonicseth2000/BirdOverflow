@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :hackers
 
-  resources :answers
+  resources :answers do 
+	get 'correct', :on => :member
+	end
 
   root 'questions#index'
   

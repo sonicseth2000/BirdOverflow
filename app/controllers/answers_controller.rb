@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
-
+   
   # GET /answers
   # GET /answers.json
   def index
@@ -20,7 +20,7 @@ class AnswersController < ApplicationController
   # GET /answers/1/edit
   def edit
   end
-
+	
   # POST /answers
   # POST /answers.json
   def create
@@ -60,7 +60,21 @@ class AnswersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  	# POST /answers
+  # POST /answers.json
 
+  def correct
+    @answer = Answer.find(params[:id])
+	  if @answer.response_score == 0
+		@answer.response_score = 1
+	
+		@question = Question.find(@answer.q_response_id)
+		@question.toggle!(:answered)
+		@answer.save
+		@question.save
+		end
+	redirect_to(:back)
+end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
@@ -73,6 +87,8 @@ class AnswersController < ApplicationController
     end
     
     def answer
-      @answer.response_score=1
+      @answer.response_score=0
     end
+	
+
 end
