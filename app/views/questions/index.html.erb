@@ -64,7 +64,8 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  
+<!-- Loop to display questions -->
   <tbody>
     <% @questions.each do |question| %>
       <tr>
@@ -83,6 +84,9 @@
         <td><%= link_to 'Answer', answer_question(question) %></td>
       </tr>
     <% end %>
+    
+  
+    
   </tbody>
 </table>
 <br>
