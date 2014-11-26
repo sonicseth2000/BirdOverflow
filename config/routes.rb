@@ -11,10 +11,9 @@ Rails.application.routes.draw do
 
   resources :questions do
 	 get 'answer', :on => :member 
+	 resources :answers
 	end
-	do
-	resources :answers
-	end
+
   resources :messages
 
   resources :users

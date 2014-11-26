@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-has_many :answers
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 	
   # GET /questions
