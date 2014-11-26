@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :hackers
 
-  resources :answers do 
-	get 'correct', :on => :member
-	end
+ # resources :answers do 
+	
 
   root 'questions#index'
   
@@ -11,7 +10,11 @@ Rails.application.routes.draw do
 
   resources :questions do
 	 get 'answer', :on => :member 
+	 resources :answers do
+	 get 'correct', :on => :member
 	end
+end
+	
   resources :messages
 
   resources :users
