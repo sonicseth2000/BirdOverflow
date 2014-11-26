@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :hackers
 
- # resources :answers do 
-	
+  resources :answers do 
+	get 'correct', :on => :member
+	end
 
   root 'questions#index'
   
@@ -10,15 +11,14 @@ Rails.application.routes.draw do
 
   resources :questions do
 	 get 'answer', :on => :member 
-	 resources :answers do
-	 get 'correct', :on => :member
 	end
-end
-	
+	do
+	resources :answers
+	end
   resources :messages
 
   resources :users
-
+  resources :hackers
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
