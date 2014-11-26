@@ -5,11 +5,13 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
+	
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+  @answers =  Answer.where( q_response_id: @question.id)
   end
 
   # GET /questions/new
