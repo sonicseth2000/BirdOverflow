@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20141020233116) do
 
   create_table "answers", force: true do |t|
+    t.integer  "question_id"
     t.integer  "answer_id"
     t.integer  "q_response_id"
     t.integer  "creator_id"
