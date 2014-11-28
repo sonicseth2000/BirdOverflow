@@ -106,23 +106,23 @@ Password: <input type="password" name="password">
 <%= link_to 'New Question', new_question_path %>
 	
 <!--Display three catagories of questions - Table 1 below-->
-
+<% @questions.each do |question| %>
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#">Username</a> <label>[Rating]</label></td>
-      <td width="150">&nbsp; <label>[Date]</label></td>
+      <td width="400"><a href="#"><%= question.creator_id %></a> <label>[Rating]</label></td>
+      <td width="150">&nbsp; <label><%=question.category%></label></td>
     </tr>
   </tbody>
   <table width="550" border="1">
   <tbody>
     <tr>
       <td><a href="#">Question</a>
-      <p>Questions?Question?Question?</p></td>
+      <p><%=question.content%></p></td>
     </tr>
   </tbody>
 </table>  
-
+<% end %>
 <!--Second Table -->
 <table width="550" border="1">
   <tbody>
