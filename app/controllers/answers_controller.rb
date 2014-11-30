@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-
+	@answer.creator_id = session[:id]
     respond_to do |format|
       if @answer.save
         format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
@@ -70,6 +70,9 @@ class AnswersController < ApplicationController
 	
 		@question = Question.find(@answer.q_response_id)
 		@question.toggle!(:answered)
+		@user = User.find(@answer.creator_id)
+		@user.score = @user.score+1
+		@user.save
 		@answer.save
 		@question.save
 		end

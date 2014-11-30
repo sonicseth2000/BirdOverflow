@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -5,17 +6,17 @@
 </head>
 
 <body>
-
-<form method="post" action="ingen_javascript.htm" 
+<!--
+<form method="post" action="ingen_javascript.htm"
   onsubmit="CheckPassword();return false;" name="login">
 <pre>
 Username: <input type="text" name="username"  align="right">
 Password: <input type="password" name="password">
 </pre>
-<input type="submit" align="right" value="log på" 
+<input type="submit" align="right" value="login"
   onclick="CheckPassword();return false;">
 </form>
-
+-->
 <!--<p>Ask a Question</p>
 
 <form action="">
@@ -82,9 +83,10 @@ Password: <input type="password" name="password">
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-      	<!--><td><%= session[:id] %></td>-->
         <td><%= question.id %></td>
-        <td><%= question.creator_id %></td>
+		<td><%= question.creator_id %></td>
+     
+        
         <td><%= question.title %></td>
         <td><%= question.content %></td>
         <td><%= question.category %></td>
