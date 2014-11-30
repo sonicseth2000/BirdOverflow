@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :sessions do
+  end
+ 
+  controller :logout do
+    get 'logout' => :destroy
+  end
+  
   resources :hackers
 
   resources :answers do 

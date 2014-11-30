@@ -56,7 +56,11 @@ Password: <input type="password" name="password">
 	</select><BR>
 	Subject:<input type="text" name="subject">
 	Question:<input type="text-->
-	
+<%= link_to 'log in', new_session_path %>
+<%= link_to 'log out', logout_path %>
+
+<br><br>
+
 	<h1>Listing questions</h1>
 
 <table>
@@ -78,6 +82,7 @@ Password: <input type="password" name="password">
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+      	<td><%= session[:id] %></td>
         <td><%= question.id %></td>
         <td><%= question.creator_id %></td>
         <td><%= question.title %></td>
@@ -99,7 +104,6 @@ Password: <input type="password" name="password">
 </table>
 <br>
 
-<button class="btn btn-primary">answered</button>
 
 
 
