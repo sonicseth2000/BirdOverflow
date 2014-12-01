@@ -42,33 +42,30 @@
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
-<table>
-  <thead>
-    <tr>
-      <th>Answer</th>
-      <th>Q response</th>
-      <th>Creator</th>
-      <th>Response score</th>
-      <th>Content</th>
-      <th>Timestamp</th>
-      <th colspan="3%"></th>
-    </tr>
-  </thead>
-<table>
+
+
+    <% @answers.where("q_response_id = '" + @question.id.to_s + "'").each do |answer| %>
+  <table width="550" border="1">
   <tbody>
-    <% @answers.each do |answer| %>
-      <tr>
-      	<td><%= answer.id %></td>
-        <td><%= answer.q_response_id %></td>
-        <td><%= answer.creator_id %></td>
-        <td><%= answer.response_score %></td>
-        <td><%= answer.content %></td>
-        <td><%= answer.timestamp %></td>
-        <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %></td>
-        <%if session[:id] == Question.find(answer.q_response_id).creator_id %>
-		    <td><%= link_to 'Correct', correct_answer_path(answer)%></td>
-        <%end %>
-      </tr>
-    <% end %>
+    <tr>
+      <td width="400"><a href="#"></a> <label>[Rating]</label></td>
+    </tr>
   </tbody>
+  <table width="550" border="1">
+  <tbody>
+    <tr>
+      <td><p><%=answer.content%></p></td>
+	  		
+	
+	
+    </tr>
+
+  </tbody>
+  <tr>
+  <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %><%= "      "%><a href="#"><%= link_to "Show All Comments", answer %></td>
+  </tr>
 </table>
+
+<br>  
+<% end %>
+

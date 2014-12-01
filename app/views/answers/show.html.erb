@@ -1,34 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Answer:</strong>
-  <%= @answer.answer_id %>
-</p>
-
-<p>
-  <strong>Q response:</strong>
-  <%= @answer.q_response_id %>
-</p>
-
-<p>
-  <strong>Creator:</strong>
-  <%= @answer.creator_id %>
-</p>
-
-<p>
-  <strong>Response score:</strong>
-  <%= @answer.response_score %>
-</p>
-
-<p>
-  <strong>Content:</strong>
   <%= @answer.content %>
 </p>
 
 <p>
-  <strong>Timestamp:</strong>
-  <%= @answer.timestamp %>
+  <strong>Comments:</strong>
 </p>
 
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
-<%= link_to 'Back', answers_path %>
+<% @responses.order('timestamp').reverse_order().take(3).each do |response| %>
+  <table width="550" border="1">
+  <tbody>
+    <tr>
+      <td width="400"><a href="#"></a> <label>[Rating]</label></td>
+    </tr>
+  </tbody>
+  <table width="550" border="1">
+  <tbody>
+    <tr>
+      <td><p><%=response.content%></p></td>
+	  		
+	
+	
+    </tr>
+
+  </tbody>
+</table>
+
+<br>  
+<% end %>
+
+
