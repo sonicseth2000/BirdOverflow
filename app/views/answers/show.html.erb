@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
 
 
-<p>
-  <strong>Answer:</strong>
-  <%= @answer.content %>
-</p>
-
-<p>
+<h1>
   <strong>Comments:</strong>
-</p>
+</h1>
 
 <% @responses.order('timestamp').reverse_order().take(3).each do |response| %>
   <table width="550" border="1">

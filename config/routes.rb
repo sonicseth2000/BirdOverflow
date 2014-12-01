@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :hackers
 
   resources :answers do 
-	get 'correct', :on => :member
+	 get 'correct', :on => :member
+	 resources :responses
 	end
 
   root 'questions#index'

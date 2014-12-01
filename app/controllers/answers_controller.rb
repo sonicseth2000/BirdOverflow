@@ -1,10 +1,14 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
-  
+  before_action :list
   # GET /answers
   # GET /answers.json
   def index
     @answers = Answer.all
+  end
+  
+  def list
+    @responses = Response.all
   end
 
   # GET /answers/1
