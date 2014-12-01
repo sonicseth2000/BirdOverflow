@@ -126,8 +126,15 @@ Password: <input type="password" name="password">
     <tr>
       <td><a href="#">Question</a>
       <p><%=question.content%></p></td>
+	  		
+	
+	
     </tr>
+
   </tbody>
+  <tr>
+  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %>
+  </tr>
 </table>  
 <% end %>
 <!--Second Table -->
@@ -144,6 +151,7 @@ Password: <input type="password" name="password">
       <td><a href="#">Question</a>
       <p>Questions?Question?Question?</p></td>
     </tr>
+
   </tbody>
 </table>    	
   	
