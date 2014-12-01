@@ -18,8 +18,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-  <%=f.hidden_field :response_id, :value => 456 %>
-  <%=f.hidden_field :creator_id, :value => 100 %>
+  <%=f.hidden_field :creator_id, :value => session[:id] %>
   <%=f.hidden_field :response_score, :value => 0 %>
   <%=f.hidden_field :timestamp, :value => DateTime.now %>
   <%=f.hidden_field :q_response_id, :value => params[:question_id] %>

@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
   end  
   
   helper_method :current_user
+  
+  before_filter :require_login
+
+private
+
+  def require_login
+    unless session[:id]
+      redirect_to new_session_path
+    end
+  end
 end
