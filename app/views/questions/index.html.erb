@@ -78,8 +78,9 @@ Password: <input type="password" name="password">
       <th colspan="3"></th>
     </tr>
   </thead>
-  
+  -->
 <!-- Loop to display questions -->
+
   <tbody>
     <% @questions.each do |question| %>
       <tr>
@@ -116,7 +117,7 @@ Password: <input type="password" name="password">
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#"><%= question.creator_id %></a> <label>[Rating]</label></td>
+      <td width="400"><a href="#"><%= link_to question.id, question %></a> <label>[Rating]</label></td>
       <td width="150">&nbsp; <label><%=question.category%></label></td>
     </tr>
   </tbody>
