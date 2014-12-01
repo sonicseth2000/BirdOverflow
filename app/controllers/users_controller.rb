@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  skip_before_filter :require_login
+
   # GET /users/1
   # GET /users/1.json
   def show
