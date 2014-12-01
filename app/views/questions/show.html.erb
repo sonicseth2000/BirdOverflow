@@ -67,6 +67,7 @@
 
   </tbody>
   <tr>
+     
   <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %><%= "      "%><a href="#"><%= link_to "Show All Comments", answer %></td>
 
   </tr>
@@ -78,7 +79,9 @@
     <%end%>
 
 </table>
+<% if session[:id] != @question.creator_id %>
 
+  <%= link_to 'Answer', new_answer_path(:question_id => @question.id) %><%end%>
 <br>  
 <% end %>
 

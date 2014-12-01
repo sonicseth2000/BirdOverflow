@@ -61,8 +61,9 @@ Password: <input type="password" name="password">
 <!--<%= link_to 'log in', new_session_path %>-->
 <%= link_to 'log out', logout_path %>
 <%= link_to 'New User', new_user_path %>
+<%= link_to 'Scores', users_path %>
 <br><br>
-
+<!--
 	<h1>Listing questions</h1>
 
 <table>
@@ -79,10 +80,10 @@ Password: <input type="password" name="password">
       <th colspan="3"></th>
     </tr>
   </thead>
-
+-->
 <!-- Loop to display questions -->
 
-
+<!--
   <tbody>
     <% @questions.each do |question| %>
       <tr>
@@ -120,7 +121,7 @@ Password: <input type="password" name="password">
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label>[Rating]</label></td>
+      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label></label></td>
       <td width="150">&nbsp; <label><%=User.find(question.creator_id).username%></label></td>
     </tr>
   </tbody>
@@ -132,11 +133,19 @@ Password: <input type="password" name="password">
 	
 	
     </tr>
-
+<tr>
+      <td>
+      <%= question.answered %></td>
+        
+  
+  
+    </tr>
   </tbody>
   <tr>
   <td>
-  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %><%= "      "%><a href="#"><%= link_to "Show All Answers", question %>
+    <% if session[:id] != question.creator_id %>
+
+  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %><%end%><%= "      "%>
   </td>
   </tr>
 </table>  
@@ -149,7 +158,7 @@ Password: <input type="password" name="password">
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label>[Rating]</label></td>
+      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label></label></td>
       <td width="150">&nbsp; <label><%=User.find(question.creator_id).username%></label></td>
     </tr>
   </tbody>
@@ -161,11 +170,18 @@ Password: <input type="password" name="password">
 	
 	
     </tr>
-
+<tr>
+      <td>
+      <%= question.answered %></td>
+        
+  
+  
+    </tr>
   </tbody>
   <tr>
   <td>
-  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %><%= "      "%><a href="#"><%= link_to "Show All Answers", question %>
+     <% if session[:id] != question.creator_id %>
+  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %> <%end%><%= "      "%>
   </td>
   </tr>
 </table>  
@@ -177,7 +193,7 @@ Password: <input type="password" name="password">
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label>[Rating]</label></td>
+      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label></label></td>
       <td width="150">&nbsp; <label><%=User.find(question.creator_id).username%></label></td>
     </tr>
   </tbody>
@@ -189,11 +205,18 @@ Password: <input type="password" name="password">
 	
 	
     </tr>
-
+<tr>
+      <td>
+      <%= question.answered %></td>
+        
+  
+  
+    </tr>
   </tbody>
   <tr>
   <td>
-  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %><%= "      "%><a href="#"><%= link_to "Show All Answers", question %>
+     <% if session[:id] != question.creator_id %>
+  <%= link_to 'Respond', new_answer_path(:question_id => question.id) %><%end%><%= "      "%>
   </td>
   </tr>
 </table>  
@@ -205,7 +228,7 @@ Password: <input type="password" name="password">
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label>[Rating]</label></td>
+      <td width="400"><a href="#"><%= link_to question.title, question %></a> <label></label></td>
       <td width="150">&nbsp; <label><%=User.find(question.creator_id).username%></label></td>
     </tr>
   </tbody>
@@ -213,18 +236,25 @@ Password: <input type="password" name="password">
   <tbody>
     <tr>
       <td><p><%=question.content%></p>
-      <a href="#"><%= link_to "Show Answers", question %></a></td>
+     </td>
 	  		
 	
 	
     </tr>
-
+    <tr>
+ <td><p><%=question.answered%></p></td>
+</tr>
   </tbody>
+    <% if session[:id] != question.creator_id %>
   <tr>
   <td>
+    <!-- prevents person logged in from answering own question -->
+  
+
   <%= link_to 'Respond', new_answer_path(:question_id => question.id) %>
   </td>
   </tr>
+  <%end%>
 </table>  
 <% end %>
 
@@ -242,18 +272,27 @@ Password: <input type="password" name="password">
   <tbody>
     <tr>
       <td><p><%=question.content%></p>
-      <a href="#"><%= link_to "Show Answers", question %></a></td>
-	  		</td>
+      </td>
+	  		
 	
 	
     </tr>
-
+ <tr>
+      <td>
+      <%= question.answered %></td>
+        
+  
+  
+    </tr>
   </tbody>
+   <% if session[:id] != question.creator_id %>
   <tr>
   <td>
+   
   <%= link_to 'Respond', new_answer_path(:question_id => question.id) %>
   </td>
   </tr>
+  <%end%>
 </table>  
 <% end %>
 <!--Second Table -->

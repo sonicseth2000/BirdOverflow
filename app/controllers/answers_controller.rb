@@ -32,13 +32,14 @@ class AnswersController < ApplicationController
 	@answer.creator_id = session[:id]
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+         redirect_to(:back) 
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end
+    redirect_to(:back)
   end
 
   # PATCH/PUT /answers/1
