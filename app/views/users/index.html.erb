@@ -1,4 +1,7 @@
-<h1>Listing users</h1>
+<head>
+<meta http-equiv="refresh" content="60" />
+</head>
+<!--<h1>Listing users</h1>
 
 <table>
   <thead>
@@ -35,3 +38,24 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+-->
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th colspan="20"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
