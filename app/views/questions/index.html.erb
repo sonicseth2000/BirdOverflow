@@ -117,8 +117,8 @@ Password: <input type="password" name="password">
   <table width="550" border="1">
   <tbody>
     <tr>
-      <td width="400"><a href="#"><%= link_to question.id, question %></a> <label>[Rating]</label></td>
-      <td width="150">&nbsp; <label><%=question.category%></label></td>
+      <td width="400"><a href="#"><%= link_to question.id, question %></a> <label></label></td>
+      <td width="150">&nbsp; <label><%=User.find(question.creator_id).username%></label></td>
     </tr>
   </tbody>
   <table width="550" border="1">
