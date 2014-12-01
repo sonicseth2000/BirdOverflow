@@ -70,9 +70,13 @@
   <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %><%= "      "%><a href="#"><%= link_to "Show All Comments", answer %></td>
 
   </tr>
+  <% if session[:id] == Question.find(answer.q_response_id).creator_id %>
   <tr>
+    
   <td>  <%= link_to 'Correct', correct_answer_path(answer)%></td>
-  </tr>
+    </tr>
+    <%end%>
+
 </table>
 
 <br>  

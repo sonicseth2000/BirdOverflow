@@ -32,9 +32,9 @@
         <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
         <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %></td>
-	
+        <% if session[:id] == Question.find(answer.q_response_id).creator_id %>	
 		<td><%= link_to 'Correct', correct_answer_path(answer)%></td>
-	
+	 <% end %>
       </tr>
     <% end %>
   </tbody>
