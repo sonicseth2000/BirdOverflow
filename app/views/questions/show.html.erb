@@ -55,9 +55,6 @@
     <% @answers.where("q_response_id = '" + @question.id.to_s + "'").each do |answer| %>
   <table width="550" border="1">
   <tbody>
-    <tr>
-      <td width="400"><a href="#"></a> <label>[Rating]</label></td>
-    </tr>
   </tbody>
   <table width="550" border="1">
   <tbody>
@@ -71,6 +68,10 @@
   </tbody>
   <tr>
   <td><%= link_to 'Respond', new_response_path(:question_id => answer.q_response_id, :response_id => answer.id) %><%= "      "%><a href="#"><%= link_to "Show All Comments", answer %></td>
+
+  </tr>
+  <tr>
+  <td>  <%= link_to 'Correct', correct_answer_path(answer)%></td>
   </tr>
 </table>
 
