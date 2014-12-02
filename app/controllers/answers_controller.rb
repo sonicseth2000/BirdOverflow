@@ -32,14 +32,14 @@ class AnswersController < ApplicationController
 	@answer.creator_id = session[:id]
     respond_to do |format|
       if @answer.save
-         redirect_to(:back) 
+        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end
-    redirect_to(:back)
+
   end
 
   # PATCH/PUT /answers/1
@@ -72,11 +72,13 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
 	  if @answer.response_score == 0
 		@answer.response_score = 1
-	
 		@question = Question.find(@answer.q_response_id)
 		@question.toggle!(:answered)
 		@user = User.find(@answer.creator_id)
+    p @user.username + "\n" + "\n"
+    p @user.score
 		@user.score = @user.score+1
+    p @user.score
 		@user.save
 		@answer.save
 		@question.save
