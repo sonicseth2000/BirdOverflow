@@ -71,14 +71,13 @@ class AnswersController < ApplicationController
   def correct
     @answer = Answer.find(params[:id])
 	  if @answer.response_score == 0
+      p "fuuuuuuuuuuuuuuuuuucccccccccccccckkkkkkkkkkkkkkkk"
 		@answer.response_score = 1
 		@question = Question.find(@answer.q_response_id)
 		@question.toggle!(:answered)
 		@user = User.find(@answer.creator_id)
-    p @user.username + "\n" + "\n"
-    p @user.score
-		@user.score = @user.score+1
-    p @user.score
+		@user.increment!(:score)
+    
 		@user.save
 		@answer.save
 		@question.save

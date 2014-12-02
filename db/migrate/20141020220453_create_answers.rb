@@ -1,6 +1,7 @@
 class CreateAnswers < ActiveRecord::Migration
   def change
     create_table :answers do |t|
+      t.belongs_to :question
       t.integer :answer_id
       t.integer :q_response_id
       t.integer :creator_id
